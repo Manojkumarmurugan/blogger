@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<script>
+function checkData(){
+	var uname=document.forms["signupform"]["uname"].value;
+	var pwd=document.forms["signupform"]["pwd"].value;
+	var pwd1=document.forms["signupform"]["pwd1"].value;
+	if(pwd!= pwd1){
+		alert("Passwords Didn't match");
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+function checkLength(){
+	var uname=document.forms["signupform"]["uname"].value;
+	var pwd=document.forms["signupform"]["pwd"].value;
+	if(uname.toString().length>10 || pwd.toString().length>10){
+		alert("length should be less than 10");
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>newUser.html</title>
+</head>
+<body>
+	<div align="center">
+		Enter user name and password
+		<br><br>
+		<form action="Upresent.jsp" name="signupform" onsubmit="return !!(checkData() & checkLength());" method="post">
+			USERNAME&nbsp<input type="text" name="uname" required><br><br>
+			PASSWORD&nbsp<input type="password" name="pwd" required><br><br>
+			Re-Enter password&nbsp<input type="password" name="pwd1" required><br><br>
+			Password should be less than 10 characters<br><br>
+			<input type="submit" value="Add Me">
+		</form>
+	</div>
+	<br><br>
+	<div align="center">
+		<button onclick="location.href='index.jsp';">Cancel session</button>
+	</div>
+</body>
+</html>
